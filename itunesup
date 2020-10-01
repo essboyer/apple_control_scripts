@@ -1,0 +1,13 @@
+#!/bin/bash
+
+osascript <<EOD
+	tell application "Music"
+		set nOldSoundVolume to sound volume
+		set sound volume to 0
+		play
+		repeat with nSoundVolume from sound volume to nOldSoundVolume by 1
+			set sound volume to nSoundVolume
+			delay 0.03
+		end repeat
+	end tell
+EOD

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+osascript <<EOD
+tell application "Spotify"
+	set nOldSoundVolume to sound volume
+	#set sound volume to 0
+	repeat with nSoundVolume from sound volume to 0 by -1
+		set sound volume to nSoundVolume
+		delay 0.06
+	end repeat
+	pause
+	set sound volume to nOldSoundVolume
+end tell
+EOD
